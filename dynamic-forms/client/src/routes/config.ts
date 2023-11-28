@@ -17,6 +17,9 @@ import { defaultLayout, loginLayout } from '../layouts';
 import { Home } from './home/home';
 import { NotFound } from './not-found/not-found';
 
+// custom routs
+import { Admin } from './admin/admin';
+
 // eslint-disable-next-line
 declare var ENABLE_SSO: string;
 
@@ -42,7 +45,10 @@ export class MainRouterConfig extends RouterConfiguration<LoginSettings> {
     super();
   }
 
-  public allRoutes = [{ index: 1, path: 'home', title: 'Home', icon: 'home', variant: 'solid' }];
+  public allRoutes = [
+    { index: 1, path: 'home', title: 'Home', icon: 'home', variant: 'solid' },
+    { index: 1, path: 'admin', title: 'Admin', icon: 'screwdriver-wrench', variant: 'solid' }
+  ];
 
   public configure() {
     this.title = 'Blank App Demo';
@@ -67,7 +73,7 @@ export class MainRouterConfig extends RouterConfiguration<LoginSettings> {
             ...ssoSettings,
           });
           return define({
-            name: `dynamicforms-root-login`,
+            name: `onboarding-root-login`,
             /**
              * You can augment the template and styles here when needed.
              */
@@ -78,6 +84,7 @@ export class MainRouterConfig extends RouterConfiguration<LoginSettings> {
         childRouters: true,
       },
       { path: 'home', element: Home, title: 'Home', name: 'home' },
+      { path: 'admin', element: Admin, title: 'Admin', name: 'admin' },
       { path: 'not-found', element: NotFound, title: 'Not Found', name: 'not-found' }
     );
 

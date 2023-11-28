@@ -4,10 +4,17 @@ import { zeroGridComponents } from '@genesislcap/foundation-zero-grid-pro';
 import { g2plotChartsComponents } from '@genesislcap/g2plot-chart';
 import { logger } from '../utils';
 import { Form } from '@genesislcap/foundation-forms';
-import { foundationLayoutComponents } from '@genesislcap/foundation-layout';
+import { FoundationLayout, foundationLayoutComponents } from '@genesislcap/foundation-layout';
+import { foundationDesignSystemProvider, registerFoundationDesignSystem } from '@genesislcap/foundation-ui'
+import { foundationGridComponents } from '@genesislcap/grid-pro';
+import {
+  provideDesignSystem as provideAlphaDesignSystem,
+  baseComponents as alphaBaseComponents,
+} from '@genesislcap/alpha-design-system';
 
 EntityManagement;
 Form;
+FoundationLayout;
 
 enum ResourceType {
   LOCAL = 'LOCAL',
@@ -44,12 +51,19 @@ export type LoadRemotesOptions = {};
 
 export async function loadRemotes() {
   const { provideDesignSystem, baseComponents } = await loadZeroDesignSystem();
+
   return {
+    AlphaDesignSystem: provideAlphaDesignSystem().register(
+         alphaBaseComponents,
+         foundationGridComponents,
+   ),
+    FoundationDesignSystem: registerFoundationDesignSystem().register(
+        foundationLayoutComponents,
+    ),
     ZeroDesignSystem: provideDesignSystem().register(
       baseComponents,
       zeroGridComponents,
       g2plotChartsComponents,
-      foundationLayoutComponents
     ),
   };
 }
