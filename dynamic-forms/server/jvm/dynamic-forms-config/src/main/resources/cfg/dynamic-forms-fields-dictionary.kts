@@ -10,5 +10,13 @@
  */
 
 fields {
+    field(name = "CLIENT_ID", type = INT)
 
+    field(name = "FORM_ID", type = INT)
+    field(name = "FORM_NAME", type = STRING)
+
+    field(name = "QUESTION_ID", type = INT)
+    field(name = "QUESTION", type = STRING)
+
+    field(name = "ANSWER", type = STRING)
 }

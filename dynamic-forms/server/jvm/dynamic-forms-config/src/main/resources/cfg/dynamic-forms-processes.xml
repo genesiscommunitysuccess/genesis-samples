@@ -11,5 +11,15 @@
 !
 -->
 <processes>
-    
+    <process name="DYNAMIC_FORMS_CRUD">
+        <groupId>DYNAMIC_FORMS</groupId>
+        <start>true</start>
+        <primaryOnly>false</primaryOnly>
+        <options>-DRedirectStreamsToLog=true</options>
+        <module>pal-dataserver,pal-requestserver,pal-eventhandler</module>
+        <package>global.genesis.requestreply.pal,global.genesis.dataserver.pal,global.genesis.eventhandler.pal</package>
+        <script>dynamic-forms-reqrep.kts,dynamic-forms-dataserver.kts,dynamic-forms-eventhandler.kts</script>
+        <loggingLevel>INFO,DATADUMP_OFF</loggingLevel>
+        <language>pal</language>
+    </process>
 </processes>

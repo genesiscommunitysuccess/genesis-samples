@@ -9,5 +9,8 @@
  * Modification History
  */
 dataServer {
-
+    query("ALL_CLIENTS", CLIENT)
+    query("ALL_FORMS", FORM)
+    query("ALL_QUESTIONS", QUESTION)
+    query("ALL_ANSWERS", ANSWERS_VIEW)
 }

@@ -11,5 +11,5 @@
 !
 -->
 <configuration>
-    
+    <service host="localhost" name="DYNAMIC_FORMS_CRUD" port="6001"/>
 </configuration>
