@@ -1,0 +1,42 @@
+version: '3.3'
+services:
+  gsf:
+    tty: true
+    container_name: gsf
+    build:
+      context: server/jvm/dynamic-forms-deploy/build/docker/
+      dockerfile: Dockerfile
+    networks:
+      qs_network:
+        aliases:
+          - localnode
+    ports:
+      - '9064:9064'
+      - '1337:22'
+      - '5432:5432'
+      - '4569:4569'
+  nginx-proxy:
+    ports:
+      - '80:80'
+      - '443:443'
+    container_name: nginx
+    build:
+      context: server/nginx/
+      dockerfile: Dockerfile
+    networks:
+      - qs_network
+  frontend:
+    container_name: frontend
+    build:
+      context: client/
+      dockerfile: Dockerfile
+    volumes:
+      - ./client:/app/
+    ports:
+      - '6060:6060'
+    entrypoint: [ "/bin/bash" , "-c", "npm run dev:docker && tail -f /dev/null" ]
+    networks:
+      - qs_network
+networks:
+  qs_network:
+    driver: bridge

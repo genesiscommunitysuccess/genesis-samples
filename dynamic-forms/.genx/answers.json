@@ -1,0 +1,27 @@
+{
+  "setApiHost": true,
+  "apiHost": "ws://localhost/gwf/",
+  "enableSSO": false,
+  "groupId": "global.genesis",
+  "applicationVersion": "1.0.0-SNAPSHOT",
+  "appName": "dynamic-forms",
+  "pkgName": "dynamicforms",
+  "directory": "dynamic-forms",
+  "appSeed": {
+    "type": "remote",
+    "about": "Genesis Blank App Seed",
+    "remoteUser": "genesiscommunitysuccess",
+    "remoteRepo": "blank-app-seed",
+    "remoteBranch": "main",
+    "subdir": ""
+  },
+  "rootElement": "dynamicforms-root",
+  "localGenId": "DYNAMIC_FORMS",
+  "applicationVersionWeb": "1.0.0",
+  "versions": {
+    "UI": "14.114.1",
+    "GSF": "7.0.2",
+    "Auth": "7.0.1"
+  },
+  "useDocker": false
+}
