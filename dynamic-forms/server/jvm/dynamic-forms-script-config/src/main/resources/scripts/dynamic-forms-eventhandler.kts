@@ -1,3 +1,5 @@
+import global.genesis.jackson.core.GenesisJacksonMapper.Companion.toValue
+
 /**
  * System              : Genesis Business Library
  * Sub-System          : multi-pro-code-test Configuration
@@ -8,10 +10,8 @@
  *
  * Modification History
  */
-
-import global.genesis.jackson.core.GenesisJacksonMapper.Companion.toValue
-
 eventHandler {
+
     //Client insert, modify, delete (delete answers too)
     eventHandler<Client>(name = "CLIENT_INSERT", transactional = true) {
         onValidate { _ ->
@@ -59,8 +59,8 @@ eventHandler {
         }
         onCommit { event ->
             val form = event.details.toValue<Form>()
-            entityDb.insert(form)
-            ack()
+            val result = entityDb.insert(form)
+            ack(listOf(mapOf("FORM_ID" to result.record.formId)))
         }
     }
     eventHandler<Form>(name = "FORM_MODIFY", transactional = true) {

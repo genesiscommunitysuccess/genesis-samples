@@ -5,16 +5,18 @@ import { g2plotChartsComponents } from '@genesislcap/g2plot-chart';
 import { logger } from '../utils';
 import { Form } from '@genesislcap/foundation-forms';
 import { FoundationLayout, foundationLayoutComponents } from '@genesislcap/foundation-layout';
-import { foundationDesignSystemProvider, registerFoundationDesignSystem } from '@genesislcap/foundation-ui'
+import { registerFoundationDesignSystem } from '@genesislcap/foundation-ui'
 import { foundationGridComponents } from '@genesislcap/grid-pro';
 import {
   provideDesignSystem as provideAlphaDesignSystem,
   baseComponents as alphaBaseComponents,
 } from '@genesislcap/alpha-design-system';
+import {StyledEntityManagement} from "./styled-entity-management/styled-entity-management";
 
 EntityManagement;
 Form;
 FoundationLayout;
+StyledEntityManagement;
 
 enum ResourceType {
   LOCAL = 'LOCAL',

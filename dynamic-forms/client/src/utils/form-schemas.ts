@@ -1,18 +1,16 @@
-export interface FormControlConfig {
-    type: string;
-    label: string;
-    scope: `#/properties/${string}`;
-    options?: Partial<{
-        allOptionsResourceName: string,
-        valueField: string,
-        labelField: string,
-        data: any,
-    }>
+import {UiSchema, UiSchemaElement, UiSchemaElementType} from "@genesislcap/foundation-forms";
+
+export const createFormSchema = (elements: UiSchemaElement[], type: UiSchemaElementType = 'VerticalLayout'): UiSchema => {
+    return {
+        type,
+        elements
+    }
 }
 
-export const createFormSchema = (elements: FormControlConfig[]): { type: 'VerticalLayout', elements: FormControlConfig[]} => {
+export const createControlConfig = (label: string, scope: string): UiSchemaElement => {
     return {
-        type: 'VerticalLayout',
-        elements
+        type: 'Control',
+        label,
+        scope: `#/properties/${scope}`
     }
 }
