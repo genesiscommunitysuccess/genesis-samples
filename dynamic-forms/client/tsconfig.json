@@ -22,7 +22,24 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strictNullChecks": false,
-    "target": "ES2015"
+    "target": "ES2015",
+    "plugins": [
+      {
+        "name": "@genesiscommunitysuccess/custom-elements-lsp",
+        "designSystemPrefix": "zero",
+        "parser": {
+          "fastEnable": true,
+          "srcRouteFromTSServer": "../../../../",
+          "timeout": 2000,
+          "dependencies": [
+            "node_modules/@genesislcap/foundation-zero/dist/custom-elements.json",
+            "node_modules/@genesislcap/foundation-forms/dist/custom-elements.json",
+            "!**/@custom-elements-manifest/**/*"
+          ]
+        },
+        "plugins": ["@genesiscommunitysuccess/cep-fast-plugin"]
+      },
+    ]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

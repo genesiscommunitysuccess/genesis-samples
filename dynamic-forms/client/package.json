@@ -72,6 +72,8 @@
     "lint-staged": "^12.4.1"
   },
   "dependencies": {
+  	"@genesiscommunitysuccess/cep-fast-plugin": "^4.1.1",
+    "@genesiscommunitysuccess/custom-elements-lsp": "^4.1.1",
     "@genesislcap/foundation-comms": "14.114.1",
     "@genesislcap/foundation-entity-management": "14.114.1",
     "@genesislcap/foundation-forms": "14.114.1",
@@ -89,6 +91,9 @@
     "@microsoft/fast-foundation": "^2.33.4",
     "@microsoft/fast-router": "^0.4.2",
     "@microsoft/fast-web-utilities": "^5.1.0",
+    "ag-grid-community": "^31.0.0",
+    "json-schema": "^0.4.0",
+    "jsonschema7": "^0.8.0",
     "rxjs": "^7.5.4",
     "tslib": "^2.3.1"
   }
